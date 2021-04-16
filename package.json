@@ -1,22 +1,15 @@
 {
-  "name": "@multiavatar/multiavatar",
+  "name": "multiavatar",
   "version": "1.0.6",
   "description": "Multicultural Avatar Generator",
-  "author": "Gie Katon <git@giekaton.com> (http://giekaton.com/)",
+  "author": "Gie Katon, modified by Emit",
   "repository": {
     "type": "git",
-    "url": "https://github.com/multiavatar/Multiavatar.git"
+    "url": "https://github.com/emitapp/Multiavatar.git"
   },
   "type": "module",
-  "main": "./dist/commonjs/index.js",
-  "exports": {
-    ".": "./dist/commonjs/index.js",
-    "./esm": "./dist/esm/index.js"
-  },
-  "module": "./dist/esm/index.js",
-  "scripts": {
-    "build": "node -e \"const fs = require('fs'); if (!fs.existsSync('./dist')){ fs.mkdirSync('./dist'); } if (!fs.existsSync('./dist/commonjs')){ fs.mkdirSync('./dist/commonjs'); } if (!fs.existsSync('./dist/esm')){ fs.mkdirSync('./dist/esm'); } const package = '{ \"\"type\"\": \"\"commonjs\"\" }'; fs.writeFileSync('./dist/commonjs/package.json', package); const s = fs.readFileSync('multiavatar.min.js', 'utf8'); const commonjs = s + ' module.exports = multiavatar;'; fs.writeFileSync('./dist/commonjs/index.js', commonjs); const esm = s + ' export default multiavatar;'; fs.writeFileSync('./dist/esm/index.js', esm); \""
-  },
+  "main": "./index.js",
+  "module": "./index.js",
   "keywords": [
     "avatar",
     "profile",

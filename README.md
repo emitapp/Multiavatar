@@ -10,48 +10,6 @@ In total, it is possible to generate **12,230,590,464** unique avatars.
 
 
 
-### Installation and usage ###
-
-Include the script and pass any string to the 'multiavatar' function. It will return the SVG code for the avatar.
-
-
-Using npm: 
-
-`npm i @multiavatar/multiavatar`
-
-CommonJS:
-```
-const multiavatar = require('@multiavatar/multiavatar')
-let svgCode = multiavatar('Binx Bond')
-```
-
-ES Module:
-```
-import multiavatar from '@multiavatar/multiavatar/esm'
-let svgCode = multiavatar('Binx Bond')
-```
-
-
-Using the script tag:
-
-```
-<script src="multiavatar.min.js"></script>
-
-<script>
-  var avatarId = 'Binx Bond';
-  var svgCode = multiavatar(avatarId);
-</script>
-```
-
-
-Include from CDN:
-
-```
-<script src="https://cdn.jsdelivr.net/npm/@multiavatar/multiavatar/multiavatar.min.js"></script>
-```
-
-
-
 ### Info ###
 
 The initial unique 48 (16x3) avatar characters are designed to work as the source from which all 12 billion avatars are generated.
@@ -90,13 +48,11 @@ Multiavatar is coded in vanilla JavaScript. Only a single library (SHA-256) is u
 
 To test different parts manually, you can uncomment them in the code.
 
-Also, the Multiavatar script accepts the following three paramenters: `string`, `sansEnv`, `ver`.
+Also, the Multiavatar script accepts the following two paramenters: `seed`, `sansEnv`.
 
-`string` - The text string that will be converted into the avatar. This parameter is required, the other two are optional.
+`seed` - The 12 char numreical text string that will be converted into the avatar. This parameter is required.
 
 `sansEnv` - If this is `true`, the script returns the final avatar without the circle background (environment part).
-
-`ver` - Pass an object to force a specific initial version, for example: `multiavatar('test', false, {'part': '01', 'theme': 'A'});`
 
 While the algorithm generates 12 billion unique avatars, some parts (eyes, mouth) are still similar, so it means that currently there are less than 12 billion unique avatars. It is trivial to make all avatars unique by slightly changing the color, but visually that would not make a difference. That's why instead of forcing a formal solution, some parts are left unfinished intentionally.
 
