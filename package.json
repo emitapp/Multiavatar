@@ -1,6 +1,6 @@
 {
-  "name": "multiavatar",
-  "version": "1.0.6",
+  "name": "@emitapp/multiavatar",
+  "version": "1.0.7",
   "description": "Multicultural Avatar Generator",
   "author": "Gie Katon, modified by Emit",
   "repository": {
