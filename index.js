@@ -665,50 +665,32 @@ export default function multiavatar (seedNum, sansEnv,) {
 
   // PHP_inject_end
 
+  //Seeds have to be 12 chars, of the format [00-47] * 6
   seedNum += '';
-  //Seeds have to be 12 chars
   seedNum = seedNum.padStart(12, "0") 
   seedNum = seedNum.substring(0, 12)
+  for (let section = 0; section < 12; section+=2) {
+    const substr = seedNum.substring(section, section + 2);
+    const n = parseInt(substr)
+    if (isNaN(n) || n > 47 || n < 0) seedNum = replaceAt(seedNum, section, "00")
+  }
+
+  function replaceAt(str, index, replacement) {
+    return str.substr(0, index) + replacement + str.substr(index + replacement.length);
+  }
 
   // parts
+  // To Freeze a single part:
+  // e.g. '0' = 01A; '16' = 01B; '32' = 01C; '1' = 02A; '17' = 02B;
   var p = [];
 
   // Get parts (range 0-47)
   p['env'] = seedNum[0] + '' + seedNum[1];
-  p['env'] = Math.round((47/100)*p['env']) + '';
-
-  // Freeze a single part
-  // e.g. '0' = 01A; '16' = 01B; '32' = 01C; '1' = 02A; '17' = 02B;
-  // p['env'] = '16';
-
   p['clo'] = seedNum[2] + '' + seedNum[3];
-  p['clo'] = Math.round((47/100)*p['clo']) + '';
-
-  // p['clo'] = '16';
-
   p['head'] = seedNum[4] + '' + seedNum[5];
-  p['head'] = Math.round((47/100)*p['head']) + '';
-
-  // p['head'] = '01';
-
   p['mouth'] = seedNum[6] + '' + seedNum[7];
-  p['mouth'] = Math.round((47/100)*p['mouth']) + '';
-
-  // p['mouth'] = '16';
-
   p['eyes'] = seedNum[8] + '' + seedNum[9];
-  p['eyes'] = Math.round((47/100)*p['eyes']) + '';
-
-  // p['eyes'] = '16';
-
   p['top'] = seedNum[10] + '' + seedNum[11];
-  p['top'] = Math.round((47/100)*p['top']) + '';
-  
-  // p['top'] = '25';
-
-  // console.log(pt1, pt2, pt3, pt4, pt5, pt6);
-  // console.log(typeof(p), p.length)
-  
 
   // Get parts (range 0-15) + define themes
   for (var part in p) {
@@ -736,17 +718,13 @@ export default function multiavatar (seedNum, sansEnv,) {
   for (var part in p) {
     var partV = p[part].substring(0,2);
     var theme = p[part].substring(2,3);
-    // console.log(part, partV, theme);
 
     final[part] = getFinal(part, partV, theme);
-    // console.log(final[part]);
   }
 
   function getFinal(part, partV, theme) {
-    // console.log(part, partV, theme)
     var colors = themes[partV][theme][part];
     var svgString = sP[partV][part];
-    // console.log(colors, svgString);
 
     var regex = /#(.*?);/g;
     var result = svgString.match(regex);
@@ -755,12 +733,10 @@ export default function multiavatar (seedNum, sansEnv,) {
 
     if (result != null) {
       for (var i = 0; i < result.length; i++) {
-        // console.log('replace', result[i], colors[i])
         resultFinal = resultFinal.replace(result[i], colors[i]+';');
       }
     }
 
-    // console.log(resultFinal)
     return resultFinal;
   }
 

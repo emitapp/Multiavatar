@@ -64,7 +64,7 @@ The design of shapes, and the multicultural balance of avatars are also open for
 
 The final SVG files are saved (Inkscape 1.0 as "Optimized SVG") with the `_final` suffix in the `svg` folder.
 
-After editing the SVG files with a vector program, overwrite the existing `_final.svg` files with your new versions. Then run the `_build.php` script to automatically update the `multiavatar-dev.js` script with the new SVG code from your `_final.svg` files.
+After editing the SVG files with a vector program, overwrite the existing `_final.svg` files with your new versions. Then run the `_build.php` script to automatically update the `index.js` script with the new SVG code from your `_final.svg` files.
 
 
 
