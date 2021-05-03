@@ -1,5 +1,7 @@
 # Multiavatar #
 
+`yarn add @emitapp/multiavatar`
+
 <img src="https://raw.githubusercontent.com/multiavatar/Multiavatar/main/logo.png?v=001" width="65">
 
 [Multiavatar](https://multiavatar.com) is a multicultural avatar maker.
