@@ -50,11 +50,13 @@ Multiavatar is coded in vanilla JavaScript. Only a single library (SHA-256) is u
 
 To test different parts manually, you can uncomment them in the code.
 
-Also, the Multiavatar script accepts the following two paramenters: `seed`, `sansEnv`.
+Also, the Multiavatar script accepts the following 3 paramenters: `seed`, `sansEnv`, `squareEnv`.
 
 `seed` - The 12 char numreical text string that will be converted into the avatar. This parameter is required.
 
 `sansEnv` - If this is `true`, the script returns the final avatar without the circle background (environment part).
+
+`squareEnv` - Makes the background a sqaure rather than a circle.
 
 While the algorithm generates 12 billion unique avatars, some parts (eyes, mouth) are still similar, so it means that currently there are less than 12 billion unique avatars. It is trivial to make all avatars unique by slightly changing the color, but visually that would not make a difference. That's why instead of forcing a formal solution, some parts are left unfinished intentionally.
 
